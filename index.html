@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Портфолио Евгения Ходотая — Python, backend и автоматизация." />
+    <meta name="theme-color" content="#1a1a1c" />
+    <meta property="og:title" content="Евгений Ходотай — Python / Backend / Automation Developer" />
+    <meta property="og:description" content="Telegram-боты, Python-сервисы, автоматизация и небольшие веб-приложения." />
+    <meta property="og:type" content="website" />
+    <title>Евгений Ходотай — Python / Backend / Automation</title>
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">К содержанию</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="monogram" href="#top" aria-label="На главную">ЕХ</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="visually-hidden">Открыть меню</span>
+          <span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+        <nav id="site-navigation" class="site-nav" aria-label="Основная навигация">
+          <a href="#about">Обо мне</a>
+          <a href="#projects">Проекты</a>
+          <a href="#skills">Навыки</a>
+          <a href="#contact">Контакты</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content">
+      <section id="top" class="hero section">
+        <div class="container hero-inner">
+          <p class="eyebrow">Python / Backend / Automation Developer</p>
+          <h1>Евгений<br />Ходотай</h1>
+          <p class="hero-copy">Создаю Telegram-боты, Python-сервисы и автоматизацию. Работаю с API-интеграциями, данными и небольшими веб-приложениями, где важны понятная логика и надёжный результат.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#projects">Посмотреть проекты</a>
+            <a class="button" href="#contact">Связаться</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container two-column">
+          <p class="section-label">01 — Обо мне</p>
+          <div>
+            <h2>Инструменты должны уменьшать рутину, а не добавлять её.</h2>
+            <div class="prose">
+              <p>Мне 24 года. Развиваюсь в backend-разработке на Python: делаю Telegram-ботов, небольшие веб-сервисы, автоматизации и интеграции с API.</p>
+              <p>Работаю с Python, FastAPI, Git/GitHub, базами данных, Docker и Playwright. Отдельно много занимаюсь AI: подключаю модели через API, собираю агентов и автоматизирую задачи, которые раньше приходилось делать вручную.</p>
+              <p>Свои проекты тоже делаю вокруг реальных задач: учет инвестиций, управление задачами через Telegram и Obsidian, сбор и анализ данных, автоматизация контента.</p>
+              <p>Стараюсь сначала собрать рабочий MVP, а уже потом усложнять архитектуру и добавлять новые функции.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects" aria-labelledby="projects-title">
+        <div class="container">
+          <div class="section-heading"><p class="section-label">02 — Проекты</p><h2 id="projects-title">Выбранные проекты</h2></div>
+          <article class="project-card">
+            <div class="project-copy">
+              <div class="project-number" aria-hidden="true">01</div>
+              <p class="project-type">Telegram bot · Local task system</p>
+              <h3>Personal Task Agent</h3>
+              <p>Личный агент для управления задачами, проектами, идеями, заметками и привычками в Obsidian-хранилище. Помогает превратить голосовой или текстовый ввод в контролируемые изменения Markdown-файлов.</p>
+              <ul class="capability-list">
+                <li>Принимает голосовые и текстовые сообщения в Telegram</li>
+                <li>Локально расшифровывает речь с faster-whisper</li>
+                <li>Показывает diff и ждёт явного Apply или Cancel</li>
+                <li>Проверяет пути и содержимое, хеш файла и создаёт backup</li>
+                <li>Ведёт привычки, ежедневные сводки и статистику без базы данных</li>
+              </ul>
+              <div class="stack" aria-label="Стек проекта"><span>Python</span><span>python-telegram-bot</span><span>faster-whisper</span><span>APScheduler</span><span>Obsidian / Markdown</span></div>
+            </div>
+            <div class="project-visual task-gallery" aria-label="Скриншоты Personal Task Agent">
+              <figure class="screenshot"><img src="assets/images/projects/project-1/cover.webp" alt="Диалог в Telegram с Personal Task Agent: голосовое сообщение, задачи и напоминание" width="540" height="841" loading="lazy" decoding="async" /></figure>
+              <figure class="screenshot"><img src="assets/images/projects/project-1/screen-1.webp" alt="Экран активности и статистики Personal Task Agent в Telegram" width="361" height="638" loading="lazy" decoding="async" /></figure>
+            </div>
+          </article>
+
+          <article class="project-card project-card-reversed">
+            <div class="project-copy">
+              <div class="project-number" aria-hidden="true">02</div>
+              <p class="project-type">Web application · Portfolio accounting</p>
+              <h3>QuantiLoom</h3>
+              <p>Веб-приложение для учёта и анализа личного инвестиционного портфеля. Сделки служат источником данных, из которых рассчитываются позиции, стоимость, доходность, структура и налоги.</p>
+              <ul class="capability-list">
+                <li>Учитывает активы и операции портфеля</li>
+                <li>Считает доходность, диверсификацию, балансировку и налоги</li>
+                <li>Поддерживает импорт CSV и проверку операций брокера</li>
+                <li>Изолирует данные пользователей и портфелей</li>
+                <li>Обновляет котировки и курсы с учётом качества данных</li>
+              </ul>
+              <div class="stack" aria-label="Стек проекта"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>Docker Compose</span></div>
+            </div>
+            <div class="project-visual dashboard-frame">
+              <img src="assets/images/projects/project-2/cover.webp" alt="Главная панель QuantiLoom с метриками портфеля, графиком стоимости и модулями приложения" width="1200" height="1379" loading="lazy" decoding="async" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section skills">
+        <div class="container">
+          <div class="section-heading"><p class="section-label">03 — Навыки</p><h2>Технологии в работе</h2></div>
+          <div class="skill-grid">
+            <section class="skill-card"><h3>Backend</h3><p>Python · FastAPI · REST API</p></section>
+            <section class="skill-card"><h3>Боты</h3><p>Telegram Bot API · aiogram</p></section>
+            <section class="skill-card"><h3>Данные</h3><p>SQL · SQLite · PostgreSQL</p></section>
+            <section class="skill-card"><h3>Автоматизация</h3><p>API-интеграции · Парсеры · Скрипты</p></section>
+            <section class="skill-card"><h3>Разработка</h3><p>Git · GitHub · Docker</p></section>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container contact-inner">
+          <p class="section-label">04 — Контакты</p>
+          <h2>Связаться со мной</h2>
+          <p class="contact-intro">Открыт к обсуждению задач по backend-разработке, Telegram-ботам и автоматизации.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:Brendone121@gmail.com"><span>Email</span><strong>Brendone121@gmail.com</strong></a>
+            <a class="contact-link" href="tel:+79933292295"><span>Телефон</span><strong>+7 993 329-22-95</strong></a>
+            <a class="contact-link" href="https://t.me/NeitherB" target="_blank" rel="noopener noreferrer"><span>Telegram</span><strong>@NeitherB</strong></a>
+          </div>
+          <div class="actions"><a class="button button-primary" href="https://t.me/NeitherB" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="container"><p>© 2026 Евгений Ходотай</p></div></footer>
+  </body>
+</html>

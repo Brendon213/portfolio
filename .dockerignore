@@ -1,0 +1,32 @@
+# Never ship source screenshots, theme references or docs in the image.
+doc/
+
+# Task/agent working files.
+.gibrid-tmp/
+.openai/
+
+# Docker deployment inputs not needed inside the final image.
+# NOTE: deploy/nginx.conf must stay in the context (COPYed by the Dockerfile);
+# only the helper scripts are excluded here.
+Dockerfile
+compose.yaml
+.dockerignore
+deploy/enable-public-funnel.ps1
+deploy/publish.sh
+deploy/publish.ps1
+dist/
+README.md
+
+# VCS / editor / OS junk.
+.git/
+.gitignore
+.gitattributes
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders and local logs/state.
+.vscode/
+.idea/
+*.log
+*.tmp

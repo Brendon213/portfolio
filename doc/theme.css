@@ -1,0 +1,461 @@
+/* ===========================================================================
+   QuantiLoom — Design System (theme.css)
+   ---------------------------------------------------------------------------
+   Самодостаточная тема: дизайн-токены + готовые компоненты.
+   Снято со стиля Obsidian-хранилища QuantiLoom (тёмная тема Minimal + .ci-*).
+   Переменные Obsidian заменены на конкретные значения — файл портативен.
+
+   Структура:
+     1. Токены (:root)          — цвета, типографика, отступы, радиусы
+     2. База                    — сброс, типографика страницы
+     3. Компоненты (.ci-*)      — карточки, таблицы, метрики, бейджи, навигация
+     4. Светлая тема (опц.)     — [data-theme="light"]
+   =========================================================================== */
+
+/* ===========================================================================
+   1. ТОКЕНЫ
+   =========================================================================== */
+:root {
+  /* ---- Поверхности (тёмная тема — по умолчанию) ---- */
+  --color-bg:            #1a1a1c;  /* фон страницы */
+  --color-surface:       #212124;  /* карточки, ячейки таблиц */
+  --color-surface-2:     #2a2a2f;  /* поля ввода, чипы */
+  --color-hover:         #2f2f35;  /* ховер-состояния */
+  --color-border:        #34343b;  /* основные границы */
+  --color-border-strong: #45454e;  /* акцентные границы */
+
+  /* ---- Текст ---- */
+  --color-text:          #e3e3e6;  /* основной */
+  --color-text-muted:    #9a9aa2;  /* приглушённый, подписи */
+  --color-text-faint:    #6c6c74;  /* плейсхолдеры, неактивное */
+
+  /* ---- Акцент ---- */
+  --color-accent:        #7c6cf0;  /* интерактив, ссылки, прогресс */
+  --color-accent-hover:  #6a59e8;
+  --color-on-accent:     #ffffff;
+
+  /* ---- Семантика ---- */
+  --color-positive:      #22c55e;  /* прибыль, рост */
+  --color-negative:      #f05252;  /* убыток, отклонение */
+  --color-warning:       #fbbf24;
+  --color-info:          #60a5fa;
+  --color-purple:        #a855f7;
+
+  /* ---- Направление сделки (теги анализа) ---- */
+  --dir-up:              #4ade80;  /* Рост */
+  --dir-down:            #f87171;  /* Падение */
+  --dir-flat:            #fbbf24;  /* Боковик */
+  --dir-unknown:         #a855f7;  /* Неопределенность */
+
+  /* ---- Класс актива (цветовая маркировка) ---- */
+  --asset-rf:            #3b82f6;  /* Российский рынок / АкцииРФ */
+  --asset-crypto:        #f59e0b;  /* Криптовалюта */
+  --asset-metals:        #9ca3af;  /* Металлы */
+  --asset-currency:      #38bdf8;  /* Валюта */
+  --asset-cfd:           #fb923c;  /* CFD / Иностранные рынки */
+
+  /* ---- Типографика ---- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fs-2xs:  0.72rem;
+  --fs-xs:   0.76rem;
+  --fs-sm:   0.82rem;
+  --fs-base: 0.90rem;
+  --fs-md:   1.00rem;
+  --fs-lg:   1.10rem;
+  --fs-xl:   1.30rem;
+  --fs-2xl:  1.60rem;
+
+  --fw-normal: 400;
+  --fw-medium: 600;
+  --fw-bold:   700;
+  --fw-black:  800;
+
+  --tracking-wide:  0.05em;
+  --tracking-wider: 0.06em;
+  --leading-normal: 1.5;
+
+  /* ---- Радиусы ---- */
+  --radius-sm:   8px;
+  --radius:      12px;
+  --radius-lg:   14px;
+  --radius-pill: 999px;
+
+  /* ---- Отступы (шкала) ---- */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 8px;
+  --space-4: 10px;
+  --space-5: 12px;
+  --space-6: 14px;
+  --space-7: 16px;
+  --space-8: 18px;
+  --space-9: 20px;
+  --space-10: 24px;
+
+  /* ---- Тени и переходы ---- */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --shadow-pop:  0 6px 24px rgba(0, 0, 0, 0.40);
+  --transition:  0.15s ease;
+}
+
+/* ===========================================================================
+   2. БАЗА
+   =========================================================================== */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--color-accent-hover); }
+
+h1, h2, h3 { color: var(--color-text); font-weight: var(--fw-bold); line-height: 1.2; }
+
+/* ===========================================================================
+   3. КОМПОНЕНТЫ
+   =========================================================================== */
+
+/* ---- Карточка ---- */
+.ci-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+.ci-head {
+  padding: var(--space-5) var(--space-8);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.ci-head .ci-sub {
+  margin-left: auto;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---- Таблица ---- */
+.ci-table { width: 100%; border-collapse: collapse; }
+.ci-table th {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  text-align: left;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.ci-table td {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+.ci-table tr:last-child td { border-bottom: none; }
+.ci-table .ci-num { text-align: right; font-variant-numeric: tabular-nums; }
+.ci-table .ci-total td {
+  font-weight: var(--fw-bold);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- Метрики (плитки KPI) ---- */
+.ci-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.ci-metric {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-6) var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.ci-metric .ci-m-label {
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+  font-weight: var(--fw-medium);
+}
+.ci-metric .ci-m-value {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-black);
+  color: var(--color-text);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.ci-metric .ci-m-sub { font-size: var(--fs-xs); color: var(--color-text-muted); }
+
+/* ---- Прогресс-бар ---- */
+.ci-bar {
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+.ci-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+/* ---- Цветной текст / статусы ---- */
+.ci-pos { color: var(--color-positive); font-weight: var(--fw-bold); }
+.ci-neg { color: var(--color-negative); font-weight: var(--fw-bold); }
+.ci-ok  { color: var(--color-text-muted); }
+
+/* ---- Бейдж / пилюля ---- */
+.ci-pill {
+  display: inline-block;
+  padding: 2px var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+}
+.ci-badge { /* плотный бейдж с цветной заливкой; задавай background инлайн или классом ниже */
+  display: inline-block;
+  padding: 3px var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  color: #000;
+  white-space: nowrap;
+}
+/* Направления */
+.ci-badge--up      { background: var(--dir-up); }
+.ci-badge--down    { background: var(--dir-down); }
+.ci-badge--flat    { background: var(--dir-flat); }
+.ci-badge--unknown { background: var(--dir-unknown); }
+/* Классы активов */
+.ci-badge--rf       { background: var(--asset-rf);       color: #fff; }
+.ci-badge--crypto   { background: var(--asset-crypto); }
+.ci-badge--metals   { background: var(--asset-metals); }
+.ci-badge--currency { background: var(--asset-currency); }
+.ci-badge--cfd      { background: var(--asset-cfd); }
+
+/* ---- Навигация плитками ---- */
+.ci-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-1) 0 var(--space-6);
+}
+.ci-mc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-6) var(--space-7);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition);
+  user-select: none;
+}
+.ci-mc:hover { border-color: var(--color-accent); background: var(--color-hover); }
+.ci-mc-icon  { font-size: 1.4rem; line-height: 1; }
+.ci-mc-title { font-size: var(--fs-base); font-weight: var(--fw-bold); color: var(--color-text); margin-top: var(--space-2); }
+.ci-mc-desc  { font-size: var(--fs-2xs); color: var(--color-text-muted); line-height: 1.4; }
+
+/* ---- Поле ввода ---- */
+.ci-input {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--fs-base);
+  outline: none;
+  transition: border-color var(--transition);
+}
+.ci-input:focus { border-color: var(--color-accent); }
+.ci-input::placeholder { color: var(--color-text-faint); }
+
+/* ---- Кнопка ---- */
+.ci-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 38px;
+  padding: 0 var(--space-7);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.ci-btn:hover { background: var(--color-hover); border-color: var(--color-border-strong); }
+.ci-btn--accent { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent); }
+.ci-btn--accent:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+
+/* ---- Чип-фильтр ---- */
+.ci-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 5px var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--transition), background var(--transition);
+}
+.ci-chip:hover  { border-color: var(--color-border-strong); }
+.ci-chip.active { background: var(--color-hover); }
+.ci-chip .dot   { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* ---- Статус качества данных (Главная) ---- */
+.ci-dq {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-5) var(--space-7);
+  margin-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ci-dq.is-degraded { border-color: var(--color-warning); }
+.ci-dq-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.ci-dq-title {
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.ci-dq-pill {
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  padding: 2px var(--space-4);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.ci-dq.is-healthy .ci-dq-pill {
+  color: var(--color-positive);
+  background: rgba(34, 197, 94, 0.12);
+}
+.ci-dq.is-degraded .ci-dq-pill {
+  color: var(--color-warning);
+  background: rgba(251, 191, 36, 0.12);
+}
+.ci-dq-line { font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+/* ---- Онбординг до первой операции (Главная при нулевом капитале) ---- */
+.ci-onboarding {
+  background: linear-gradient(180deg, rgba(124, 108, 240, 0.08), rgba(124, 108, 240, 0.02)),
+    var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: var(--space-7) var(--space-8);
+  margin-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.ci-onb-title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+}
+.ci-onb-text {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 560px;
+}
+.ci-onb-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ci-onb-steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.ci-onb-steps .is-done .ci-onb-done {
+  color: var(--color-positive);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+}
+.ci-onb-hint {
+  font-size: var(--fs-2xs);
+  color: var(--color-text-faint);
+}
+
+/* ===========================================================================
+   4. СВЕТЛАЯ ТЕМА (опционально: <html data-theme="light">)
+   =========================================================================== */
+[data-theme="light"] {
+  --color-bg:            #f7f7f8;
+  --color-surface:       #ffffff;
+  --color-surface-2:     #f0f0f2;
+  --color-hover:         #eaeaee;
+  --color-border:        #e3e3e7;
+  --color-border-strong: #cfcfd6;
+
+  --color-text:          #1f2024;
+  --color-text-muted:    #6b6b73;
+  --color-text-faint:    #9a9aa2;
+
+  --color-accent:        #6a59e8;
+  --color-accent-hover:  #5847d6;
+
+  --color-positive:      #16a34a;
+  --color-negative:      #dc2626;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-pop:  0 6px 24px rgba(0, 0, 0, 0.12);
+}
