@@ -37,3 +37,28 @@
     if (!event.matches) closeMenu();
   });
 })();
+
+(() => {
+  const slider = document.querySelector('.project-slider');
+  if (!slider) return;
+
+  const cards = Array.from(slider.querySelectorAll('.project-slides > .project-card'));
+  const currentLabel = slider.querySelector('.project-current');
+  const totalLabel = slider.querySelector('.project-total');
+  const previous = slider.querySelector('.project-arrow-prev');
+  const next = slider.querySelector('.project-arrow-next');
+  let current = 0;
+
+  if (cards.length < 2) return;
+  totalLabel.textContent = String(cards.length);
+
+  const show = index => {
+    current = (index + cards.length) % cards.length;
+    cards.forEach((card, cardIndex) => { card.hidden = cardIndex !== current; });
+    currentLabel.textContent = String(current + 1);
+  };
+
+  previous.addEventListener('click', () => show(current - 1));
+  next.addEventListener('click', () => show(current + 1));
+  show(0);
+})();
